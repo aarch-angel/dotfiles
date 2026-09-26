@@ -1,0 +1,43 @@
+source /home/aarchangel/.local/share/uv/tools/pwndbg/share/pwndbg/gdbinit.py
+# source /usr/share/pwndbg/gdbinit.py
+# source /home/aarchangel/Dotfiles/scripts/pwnmux.py
+# source /home/aarchangel/Dotfiles/scripts/pwnwez.py
+
+define tty-context
+  set context-output /dev/pts/$arg0
+end
+
+document tty-context
+Outputs pwndbg context into a different tty than the current one.
+Takes a single argument, the /dev/pts/tty number, found by running `tty`
+end
+
+define dis
+  disassem
+end
+
+document dis
+Alias for dissasem.
+end
+
+# pwndbg config
+# show register flags
+set show-flags on
+# change default sections shown in pwndbg context, by default there's too much that I don't need
+set context-sections threads backtrace regs heap_tracker stack expressions
+# increase disassem context lines
+set context-disasm-lines 20
+
+# pwndbg theme
+# nearpc-address-color: color for nearpc command (address)
+# default: normal
+set nearpc-address-color blue
+
+# Sync with binja
+set decompiler-autojump on
+set decompiler-autosync-syms on
+
+# vanilla gdb options
+# Download debug info
+set debuginfod enabled on
+

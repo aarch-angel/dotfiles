@@ -1,0 +1,14 @@
+[Unit]
+Description=Restart iio-sensor-proxy after resume (ISH accel stream stalls after s2idle)
+# Run once the system is back from any sleep state
+After=suspend.target hibernate.target hybrid-sleep.target suspend-then-hibernate.target
+
+[Service]
+Type=oneshot
+# Give the ISH sensor hub time to finish resuming
+ExecStartPre=/usr/bin/sleep 2
+# Restart forces KWin (QtSensors) to re-claim the accelerometer, same as toggling autorotate
+ExecStart=/usr/bin/systemctl restart iio-sensor-proxy.service
+
+[Install]
+WantedBy=suspend.target hibernate.target hybrid-sleep.target suspend-then-hibernate.target

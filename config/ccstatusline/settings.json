@@ -1,0 +1,169 @@
+{
+  "version": 4,
+  "lines": [
+    [
+      {
+        "id": "aec3af0e-fd12-4d03-8b73-ef7098f29d9f",
+        "type": "vim-mode",
+        "backgroundColor": "bgYellow",
+        "metadata": {
+          "nerdFont": "true",
+          "format": "letter"
+        }
+      },
+      {
+        "id": "ddfa4487-0681-4d6f-bafa-a9a8ad08c823",
+        "type": "current-working-dir",
+        "backgroundColor": "hex:45475A",
+        "metadata": {
+          "fishStyle": "true"
+        },
+        "color": "hex:CDD6F4"
+      },
+      {
+        "id": "5",
+        "type": "git-branch",
+        "color": "hex:CDD6F4",
+        "backgroundColor": "hex:585B70",
+        "merge": true
+      },
+      {
+        "id": "7",
+        "type": "git-changes",
+        "color": "hex:1E1E2E",
+        "backgroundColor": "hex:CBA6F7"
+      },
+      {
+        "id": "0fd47818-68fa-4cf6-b0d4-91d4b7ad8d5f",
+        "type": "model",
+        "backgroundColor": "bgCyan",
+        "rawValue": true,
+        "merge": true
+      },
+      {
+        "id": "d880ae8b-838c-4d13-b112-a12237f46053",
+        "type": "thinking-effort",
+        "backgroundColor": "bgBrightYellow",
+        "rawValue": true
+      },
+      {
+        "id": "92e10f86-a2ca-4cc3-bc07-34c7ccfc5dc2",
+        "type": "skills",
+        "backgroundColor": "bgCyan",
+        "rawValue": true,
+        "metadata": {
+          "mode": "list",
+          "hide": "empty"
+        }
+      },
+      {
+        "id": "fa5deb92-53f5-4e92-b540-7a8146e10b34",
+        "type": "custom-command",
+        "backgroundColor": "bgBlue",
+        "commandPath": "bash ~/.claude/plugins/marketplaces/caveman/hooks/caveman-statusline.sh"
+      }
+    ],
+    [
+      {
+        "id": "84cc6303-878e-4094-aa01-4bb28efdda18",
+        "type": "session-name",
+        "backgroundColor": "hex:CBA6F7",
+        "rawValue": true,
+        "merge": true,
+        "color": "hex:1E1E2E"
+      },
+      {
+        "id": "0d96f42d-8b4c-4df8-a5d2-4a751dea1917",
+        "type": "session-clock",
+        "backgroundColor": "hex:45475A",
+        "rawValue": true,
+        "color": "hex:CDD6F4"
+      },
+      {
+        "id": "f882fbb5-54e5-4557-ba84-65a46c00365c",
+        "type": "context-bar",
+        "backgroundColor": "hex:A6E3A1",
+        "color": "hex:1E1E2E",
+        "rawValue": true,
+        "merge": true
+      },
+      {
+        "id": "29f059a8-53ac-48ff-8073-40efc24fa2bb",
+        "type": "compaction-counter",
+        "backgroundColor": "bgBrightCyan",
+        "metadata": {
+          "nerdFont": "true"
+        }
+      },
+      {
+        "id": "bde62443-47bb-4c58-9478-878b5a0a6559",
+        "type": "weekly-usage",
+        "backgroundColor": "hex:F38BA8",
+        "color": "hex:1E1E2E",
+        "rawValue": true,
+        "merge": true
+      },
+      {
+        "id": "3c93dd21-043f-46a9-8429-4b83a67650ae",
+        "type": "weekly-reset-timer",
+        "backgroundColor": "hex:585B70",
+        "metadata": {
+          "display": "time"
+        },
+        "rawValue": true,
+        "color": "hex:CDD6F4"
+      },
+      {
+        "id": "05717c73-63c6-4353-bf3d-142374523183",
+        "type": "session-usage",
+        "backgroundColor": "hex:CBA6F7",
+        "merge": true,
+        "color": "hex:1E1E2E",
+        "rawValue": true
+      },
+      {
+        "id": "b9091659-23c7-44af-bc48-24eb0af3b06e",
+        "type": "reset-timer",
+        "backgroundColor": "hex:45475A",
+        "merge": true,
+        "rawValue": true,
+        "metadata": {
+          "absolute": "false",
+          "compact": "false"
+        },
+        "color": "hex:CDD6F4"
+      }
+    ]
+  ],
+  "flexMode": "full",
+  "compactThreshold": 60,
+  "colorLevel": 3,
+  "inheritSeparatorColors": false,
+  "globalBold": false,
+  "gitCacheTtlSeconds": 5,
+  "minimalistMode": false,
+  "powerline": {
+    "enabled": true,
+    "separators": [
+      ""
+    ],
+    "separatorInvertBackground": [
+      false
+    ],
+    "startCaps": [
+      "",
+      "█"
+    ],
+    "endCaps": [
+      ""
+    ],
+    "autoAlign": false,
+    "continueThemeAcrossLines": false,
+    "theme": "catppuccin"
+  },
+  "defaultPadding": " ",
+  "installation": {
+    "method": "auto-update",
+    "packageManager": "bun"
+  }
+}

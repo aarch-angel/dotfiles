@@ -1,0 +1,294 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# [](bg-1)\
+
+# Use zero width joiner \u200B to get a character we can apply styling to
+# this makes "prev_fg" work
+
+# use conditional matching to only show space if something is there
+# ([ ](bg:prev_bg fg:light)\
+
+# [ $username@$hostname ](bg:bg-1 fg:dark)\
+# [ ${custom.icon} ](bg:bg-1 fg:fg-1)\
+format = """
+[ $character](bg:bg-1 fg:fg-1)\
+[](bg:bg-2 fg:prev_bg)\
+[\u200B](bg:prev_bg fg:dark)\
+$directory\
+[](fg:prev_bg bg:bg-3)\
+([ ](bg:prev_bg fg:dark)\
+$git_branch\
+$git_status\
+)\
+[](fg:prev_bg bg:bg-4)\
+([ ](bg:prev_bg fg:dark)\
+[\
+$c\
+$cmake\
+$daml\
+$deno\
+$dotnet\
+$elixir\
+$elm\
+$erlang\
+$fennel\
+$golang\
+$haskell\
+$helm\
+$java\
+$julia\
+$kotlin\
+$gradle\
+$lua\
+$nodejs\
+$opa\
+$perl\
+$python\
+$rust\
+$terraform\
+$vlang\
+$vagrant\
+$nix_shell\
+$conda\
+$mise\
+$meson\
+$spack\
+$aws\
+$openstack\
+$azure\
+$crystal\
+](bg:prev_bg)\
+)\
+[](fg:prev_bg bg:bg-5)\
+([ ](bg:prev_bg fg:dark)\
+[\
+$jobs\
+$package\
+$docker_context\
+](bg:prev_bg fg:dark)\
+)\
+[](fg:prev_bg bg:bg-6)\
+([ ](bg:prev_bg fg:dark)\
+$env_var\
+$memory_usage\
+$sudo\
+$cmd_duration\
+)\
+[ ](fg:prev_bg)\
+$line_break\
+[](fg:bg-1)\
+"""
+#[╚═❯ ](fg:bg-1)\
+#[╚═❯ ](fg:bg-4)\
+#[┕━❯╰─\uea9c╚═❯](fg:bg-4)\
+
+
+add_newline = true
+
+palette = 'cute'
+
+[palettes.colourful]
+light = "white"
+dark = "black"
+fg-1 = "yellow"
+bg-1 = "#9A348E"
+bg-2 = "#DA627D"
+bg-3 = "#FCA17D"
+bg-4 = "#86BBD8"
+bg-5 = "#06969A"
+bg-6 = "#33658A"
+
+[palettes.cute]
+light = "white"
+dark = "black"
+fg-1 = "#000000"
+bg-1 = "#BB83DB"
+bg-2 = "#FF77A9"
+bg-3 = "#FF8FB8"
+bg-4 = "#87C6FE"
+bg-5 = "#6DB9FF"
+bg-6 = "#4E9AD4"
+
+[palettes.catppuccin]
+light = "white"
+dark = "black"
+fg-1 = "#000000"
+bg-1 = "#f38ba8"
+bg-2 = "#fab387"
+bg-3 = "#f9e2af"
+bg-4 = "#a6e3a1"
+bg-5 = "#74c7ec"
+bg-6 = "#b4befe"
+
+[custom.icon]
+# NOTE: disabled, I use [characeter] for this
+description = "Displays a (pseudo) random icon for each prompt"
+# change the content of the ICON array to your liking and replace the
+# number with the number of items in the array, minus one
+command = "ICONS=( 󰄛   ); ICON_INDEX=$(( $RANDOM % 4 + 0 )); echo ${ICONS[$ICON_INDEX]}"
+when = "true"
+shell = ["bash", "--noprofile", "--norc"]
+format = "$output"
+
+# You can also replace your username with a neat symbol like   or disable this
+# and use the os module below
+[username]
+show_always = true
+#style_user = "bg:bg-1"
+#style_root = "bg:bg-1"
+format = '$user'
+disabled = true
+
+# An alternative to the username module which displays a symbol that
+# represents the current operating system
+[os]
+style = "bg:prev"
+disabled = true   # Disabled by default
+
+[hostname]
+ssh_only = false
+style = "bg:prev_bg fg:dark bold italic"
+format = "[$hostname]($style)"
+trim_at = ''
+disabled = true
+
+[directory]
+style = "bg:prev_bg fg:prev_fg"
+format = "[ $path ]($style)"
+fish_style_pwd_dir_length = 1
+truncation_length = 0
+truncation_symbol = "…/"
+
+# Here is how you can shorten some long paths by text replacement
+# similar to mapped_locations in Oh My Posh:
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
+# Keep in mind that the order matters. For example:
+# "Important Documents" = "  "
+# will not be replaced, because "Documents" was already substituted before.
+# So either put "Important Documents" before "Documents" or use the substituted version:
+# "Important  " = "  "
+
+
+[package]
+display_private = true
+symbol = "  "
+style = "bold bg:prev_bg fg:prev_fg"
+format = '[$symbol$version ]($style)'
+
+[cmd_duration]
+style = "bg:prev_bg fg:prev_fg"
+min_time = 500
+format = "[$duration ]($style)"
+
+# https://starship.rs/config/#status
+[status]
+style = "bg:prev_bg fg:prev_fg"
+format = '[\($status\)$symbol]($style)'
+symbol = " "
+pipestatus = true
+disabled = true
+
+# https://starship.rs/config/#character
+[character]
+#  󰄛   
+success_symbol = ' '
+error_symbol = ' '
+vimcmd_symbol = " "
+vimcmd_visual_symbol = "󰄛 "
+vimcmd_replace_one_symbol = "r "
+vimcmd_replace_symbol = "R "
+format = "[$symbol](bg:prev_bg fg:prev_fg italic)"
+
+
+[jobs]
+style = "bg:prev_bg fg:prev_fg"
+format = "[$symbol( $number)]($style) "
+
+# Languages
+
+[c]
+symbol = ""
+style = "bg:prev_bg fg:prev_fg"
+format = '[$symbol ($version) ]($style)'
+
+[docker_context]
+symbol = ""
+style = "bg:prev_bg fg:prev_fg"
+format = '[$symbol $context ]($style) $path'
+
+[elm]
+symbol = ""
+style = "bg:prev_bg fg:prev_fg"
+format = '[$symbol ($version) ]($style)'
+
+[git_branch]
+symbol = ""
+style = "bg:prev_bg fg:prev_fg"
+format = '[$symbol $branch ]($style)'
+
+[git_status]
+style = "bg:prev_bg fg:prev_fg"
+format = '[$all_status$ahead_behind ]($style)'
+
+[golang]
+symbol = ""
+style = "bg:prev_bg fg:prev_fg"
+format = '[$symbol ($version) ]($style)'
+
+[gradle]
+style = "bg:prev_bg fg:prev_fg"
+format = '[$symbol ($version) ]($style)'
+
+[haskell]
+symbol = ""
+style = "bg:prev_bg fg:prev_fg"
+format = '[$symbol ($version) ]($style)'
+
+[java]
+symbol = ""
+style = "bg:prev_bg fg:prev_fg"
+format = '[$symbol ($version) ]($style)'
+
+[julia]
+symbol = ""
+style = "bg:prev_bg fg:prev_fg"
+format = '[$symbol ($version) ]($style)'
+
+# Needs extra space
+[lua]
+symbol = ""
+style = "bg:prev_bg fg:prev_fg"
+format = '[$symbol  ($version) ]($style)'
+
+[nodejs]
+symbol = ""
+style = "bg:prev_bg fg:prev_fg"
+format = '[$symbol ($version) ]($style)'
+
+[rust]
+symbol = ""
+style = "bg:prev_bg fg:prev_fg"
+format = '[$symbol ($version) ]($style)'
+
+[python]
+symbol = " "
+style = "bg:prev_bg fg:prev_fg"
+format = '[$symbol ($version) ($virtualenv)]($style)'
+
+[cmake]
+symbol = "△"
+style = "bg:prev_bg fg:prev_fg"
+format = '[$symbol ($version) ]($style)'
+
+[mise]
+symbol = "󰭼"
+healthy_symbol = ""
+unhealthy_symbol = ""
+style = "bg:prev_bg fg:prev_fg"
+format = '[via $symbol ($health) ]($style)'
+disabled = false

@@ -1,0 +1,43 @@
+- defaults:
+    link:
+      relink: true
+      create: true
+      # force: true
+
+- clean:
+    ~/:
+    ~/.config:
+      recursive: false
+    ~/.config/fish/:
+      recursive: true
+
+- link:
+    ~/:
+      glob: true
+      path: home/**
+      prefix: "."
+
+    ~/.local/:
+      glob: true
+      path: local/**
+
+    ~/.config/:
+      glob: true
+      path: config/**
+
+    ~/.config/fish/:
+      glob: true
+      path: fish/**
+
+    ~/.config/boxes/:
+      glob: true
+      path: resources/boxes/**
+
+    # symlink entire nvim folder
+    ~/.config/nvim: nvim
+
+- shell:
+    - command: ./scripts/copy_etc.fish
+      descript: Copying /etc files..
+      stdout: true
+      stderr: true

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Service
+MimeType=inode/directory;
+Actions=OpenNeovide
+
+[Desktop Action OpenNeovide]
+Name=Open Neovide Here
+Name[en_US]=Open Neovide Here
+Icon=neovide
+Exec=neovide

@@ -1,0 +1,47 @@
+fish_color_autosuggestion 6C6F93 
+fish_color_cancel ff5555 --reverse 
+fish_color_command 87C6FE 
+fish_color_comment 4C4D53 
+fish_color_cwd 50fa7b 
+fish_color_cwd_root red 
+fish_color_end 29D398 
+fish_color_error FF77A9 
+fish_color_escape ff79c6 
+fish_color_gray 
+fish_color_hg_added green 
+fish_color_hg_clean green 
+fish_color_hg_copied magenta 
+fish_color_hg_deleted red 
+fish_color_hg_dirty red 
+fish_color_hg_modified yellow 
+fish_color_hg_renamed magenta 
+fish_color_hg_unmerged red 
+fish_color_hg_untracked yellow 
+fish_color_history_current --bold 
+fish_color_host bd93f9 
+fish_color_host_remote bd93f9 
+fish_color_keyword ff79c6 
+fish_color_normal f8f8f2 
+fish_color_operator 29D398 
+fish_color_option BB83DB 
+fish_color_param --reset 
+fish_color_quote FAC29A 
+fish_color_redirection 29D398 
+fish_color_search_match --bold --background=44475a 
+fish_color_selection --bold --background=44475a 
+fish_color_status ff5555 
+fish_color_user 8be9fd 
+fish_color_valid_path --underline=single 
+fish_pager_color_background 
+fish_pager_color_completion f8f8f2 
+fish_pager_color_description FBC3A7 
+fish_pager_color_prefix 8be9fd 
+fish_pager_color_progress 6272a4 
+fish_pager_color_secondary_background 
+fish_pager_color_secondary_completion f8f8f2 
+fish_pager_color_secondary_description FBC3A7 
+fish_pager_color_secondary_prefix 8be9fd 
+fish_pager_color_selected_background --background=2E303E 
+fish_pager_color_selected_completion f8f8f2 
+fish_pager_color_selected_description FAB795 
+fish_pager_color_selected_prefix 8be9fd 

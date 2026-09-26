@@ -1,0 +1,12 @@
+[Unit]
+Description=Pano Scrobbler
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Restart=always
+RestartSec=10
+ExecStart=%h/Programs/pano-scrobbler-linux-x64.appimage
+
+[Install]
+WantedBy=network-online.target

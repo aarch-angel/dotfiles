@@ -1,0 +1,90 @@
+{
+  "model": "opus",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Skill",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bunx -y ccstatusline@latest --hook"
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bunx -y ccstatusline@latest --hook"
+          }
+        ]
+      }
+    ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "bunx -y ccstatusline@latest",
+    "padding": 0,
+    "refreshInterval": 10
+  },
+  "enabledPlugins": {
+    "caveman@caveman": true,
+    "claude-code-setup@claude-plugins-official": true,
+    "claude-md-management@claude-plugins-official": true,
+    "frontend-design@claude-plugins-official": true,
+    "gitkraken-hooks@gitkraken": true,
+    "playground@claude-plugins-official": true,
+    "typescript-lsp@claude-plugins-official": true,
+    "context7@claude-plugins-official": true,
+    "rust-analyzer-lsp@claude-plugins-official": true,
+    "humanizer@humanizer": true,
+    "firebase@firebase": true
+  },
+  "extraKnownMarketplaces": {
+    "caveman": {
+      "source": {
+        "source": "github",
+        "repo": "JuliusBrussee/caveman"
+      }
+    },
+    "svelte": {
+      "source": {
+        "source": "github",
+        "repo": "sveltejs/ai-tools"
+      }
+    },
+    "humanizer": {
+      "source": {
+        "source": "github",
+        "repo": "blader/humanizer"
+      }
+    },
+    "firebase": {
+      "source": {
+        "source": "github",
+        "repo": "firebase/agent-skills"
+      }
+    }
+  },
+  "effortLevel": "medium",
+  "modelSettings": {
+    "claude-opus-5": {
+      "effortLevel": "high"
+    },
+    "claude-sonnet-4-6": {
+      "effortLevel": "high"
+    },
+    "claude-opus-4-8": {
+      "effortLevel": "high"
+    }
+  },
+  "awaySummaryEnabled": false,
+  "tui": "fullscreen",
+  "autoMemoryEnabled": false,
+  "editorMode": "vim",
+  "switchModelsOnFlag": true,
+  "inputNeededNotifEnabled": false,
+  "agentPushNotifEnabled": true
+}

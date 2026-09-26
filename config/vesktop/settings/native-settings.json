@@ -1,0 +1,17 @@
+{
+    "plugins": {},
+    "customCspRules": {
+        "buns.gay": [
+            "connect-src",
+            "img-src",
+            "style-src",
+            "font-src"
+        ],
+        "accrazed.github.io": [
+            "connect-src",
+            "img-src",
+            "style-src",
+            "font-src"
+        ]
+    }
+}
