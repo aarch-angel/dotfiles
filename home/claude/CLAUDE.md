@@ -17,6 +17,8 @@ Always use these over standard alternatives:
 - `bat` instead of `cat` (when showing files to user)
 - `fzf` available
 
+- Bash tool runs bash, not fish (fish is only my interactive shell): write bash syntax in tool commands (`$(...)`, `for x in ...; do ...; done`, `<(...)`, heredocs), and only give fish syntax when suggesting commands for me to run myself.
+
 ## Communication
 
 - Add inline comments to code.
@@ -25,6 +27,6 @@ Always use these over standard alternatives:
 ## Preferences
 
 - Tabs preferred for indentation, but default to project setup or idiomatic language formatting.
-- dotfiles located in `~/dotfiles/` in case configs are needed for reference
+- dotfiles located in `~/Dotfiles/` in case configs are needed for reference
 - Neovim config via LazyVim — suggest nvim-compatible tooling where relevant
 - Always use Context7 when I need library/API documentation, code generation, setup or configuration steps without me having to explicitly ask.

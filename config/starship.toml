@@ -15,11 +15,13 @@ format = """
 [ $character](bg:bg-1 fg:fg-1)\
 [](bg:bg-2 fg:prev_bg)\
 [\u200B](bg:prev_bg fg:dark)\
-$directory\
+[$directory](bg:prev_bg fg:prev_fg)\
 [](fg:prev_bg bg:bg-3)\
 ([ ](bg:prev_bg fg:dark)\
+[\
 $git_branch\
 $git_status\
+](bg:prev_bg fg:prev_fg)\
 )\
 [](fg:prev_bg bg:bg-4)\
 ([ ](bg:prev_bg fg:dark)\
@@ -58,7 +60,7 @@ $aws\
 $openstack\
 $azure\
 $crystal\
-](bg:prev_bg)\
+](bg:prev_bg fg:prev_fg)\
 )\
 [](fg:prev_bg bg:bg-5)\
 ([ ](bg:prev_bg fg:dark)\
@@ -73,7 +75,7 @@ $docker_context\
 $env_var\
 $memory_usage\
 $sudo\
-$cmd_duration\
+[$cmd_duration](bg:prev_bg fg:prev_fg)\
 )\
 [ ](fg:prev_bg)\
 $line_break\
@@ -143,8 +145,8 @@ disabled = true
 # An alternative to the username module which displays a symbol that
 # represents the current operating system
 [os]
-style = "bg:prev"
-disabled = true   # Disabled by default
+style = "bg:prev_bg"
+disabled = true      # Disabled by default
 
 [hostname]
 ssh_only = false
@@ -154,8 +156,7 @@ trim_at = ''
 disabled = true
 
 [directory]
-style = "bg:prev_bg fg:prev_fg"
-format = "[ $path ]($style)"
+format = " $path "
 fish_style_pwd_dir_length = 1
 truncation_length = 0
 truncation_symbol = "…/"
@@ -181,9 +182,8 @@ style = "bold bg:prev_bg fg:prev_fg"
 format = '[$symbol$version ]($style)'
 
 [cmd_duration]
-style = "bg:prev_bg fg:prev_fg"
 min_time = 500
-format = "[$duration ]($style)"
+format = "$duration "
 
 # https://starship.rs/config/#status
 [status]
@@ -206,89 +206,72 @@ format = "[$symbol](bg:prev_bg fg:prev_fg italic)"
 
 
 [jobs]
-style = "bg:prev_bg fg:prev_fg"
-format = "[$symbol( $number)]($style) "
+format = "$symbol( $number) "
 
 # Languages
 
 [c]
 symbol = ""
-style = "bg:prev_bg fg:prev_fg"
-format = '[$symbol ($version) ]($style)'
+format = '$symbol ($version) '
 
 [docker_context]
 symbol = ""
-style = "bg:prev_bg fg:prev_fg"
-format = '[$symbol $context ]($style) $path'
+format = '$symbol $context  $path'
 
 [elm]
 symbol = ""
-style = "bg:prev_bg fg:prev_fg"
-format = '[$symbol ($version) ]($style)'
+format = '$symbol ($version) '
 
 [git_branch]
 symbol = ""
-style = "bg:prev_bg fg:prev_fg"
-format = '[$symbol $branch ]($style)'
+format = '$symbol $branch '
 
 [git_status]
-style = "bg:prev_bg fg:prev_fg"
-format = '[$all_status$ahead_behind ]($style)'
+format = '$all_status$ahead_behind '
 
 [golang]
 symbol = ""
-style = "bg:prev_bg fg:prev_fg"
-format = '[$symbol ($version) ]($style)'
+format = '$symbol ($version) '
 
 [gradle]
-style = "bg:prev_bg fg:prev_fg"
-format = '[$symbol ($version) ]($style)'
+format = '$symbol ($version) '
 
 [haskell]
 symbol = ""
-style = "bg:prev_bg fg:prev_fg"
-format = '[$symbol ($version) ]($style)'
+format = '$symbol ($version) '
 
 [java]
 symbol = ""
-style = "bg:prev_bg fg:prev_fg"
-format = '[$symbol ($version) ]($style)'
+format = '$symbol ($version) '
 
 [julia]
 symbol = ""
-style = "bg:prev_bg fg:prev_fg"
-format = '[$symbol ($version) ]($style)'
+format = '$symbol ($version) '
 
 # Needs extra space
 [lua]
 symbol = ""
-style = "bg:prev_bg fg:prev_fg"
-format = '[$symbol  ($version) ]($style)'
+format = '$symbol  ($version) '
 
 [nodejs]
-symbol = ""
-style = "bg:prev_bg fg:prev_fg"
-format = '[$symbol ($version) ]($style)'
+symbol = " "
+format = '$symbol ($version) '
 
 [rust]
 symbol = ""
-style = "bg:prev_bg fg:prev_fg"
-format = '[$symbol ($version) ]($style)'
+format = '$symbol ($version) '
 
 [python]
 symbol = " "
-style = "bg:prev_bg fg:prev_fg"
-format = '[$symbol ($version) ($virtualenv)]($style)'
+format = '$symbol ($version) ($virtualenv)'
 
 [cmake]
 symbol = "△"
-style = "bg:prev_bg fg:prev_fg"
-format = '[$symbol ($version) ]($style)'
+format = '$symbol ($version) '
 
 [mise]
 symbol = "󰭼"
 healthy_symbol = ""
 unhealthy_symbol = ""
-style = "bg:prev_bg fg:prev_fg"
-format = '[via $symbol ($health) ]($style)'
+format = 'via $symbol ($health) '
 disabled = false

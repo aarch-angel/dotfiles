@@ -40,4 +40,4 @@ set async_prompt_enable 0
 
 starship init fish | source
 navi widget fish | source
-# mise activate fish | source
+mise activate fish | source
