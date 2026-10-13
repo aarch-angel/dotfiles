@@ -1,5 +1,11 @@
 # Maya's Dotfiles
 
+
+
+https://github.com/user-attachments/assets/a80ab74c-3240-4563-8cd4-19861e5292a2
+
+
+
 - **OS**: [Arch Linux](https://archlinux.org/)
 - **Desktop Environment**: [KDE Plasma](https://kde.org/plasma-desktop/) ([Breeze Dark](https://github.com/KDE/breeze))
   - [Krohnkite](https://codeberg.org/anametologin/Krohnkite) for tiling
