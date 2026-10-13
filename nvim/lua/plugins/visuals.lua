@@ -1,5 +1,3 @@
-vim.opt.conceallevel = 2
-
 return {
   -- These are somewhat sorted in an order that makes sense to me.
 
@@ -18,78 +16,6 @@ return {
       colorscheme = "horizon",
     },
   },
-
-  -- LazyVim UI
-  {
-    "folke/snacks.nvim",
-    priority = 1000,
-    lazy = false,
-    ---@type snacks.Config
-    opts = {
-      -- Disable smooth scrolling animations
-      scroll = { enabled = false },
-
-      picker = {
-        sources = {
-          buffers = {
-            -- Don't show current buffer: https://github.com/folke/snacks.nvim/blob/bc0630e43be5699bb94dadc302c0d21615421d93/lua/snacks/picker/config/sources.lua#L17
-            current = false,
-            -- "d" in normal mode will delete the buffer
-            win = {
-              input = { keys = { ["d"] = "bufdelete" } },
-              list = { keys = { ["d"] = "bufdelete" } },
-            },
-          },
-          files = {
-            hidden = true,
-            ignored = true,
-          },
-          explorer = {
-            hidden = true,
-            ignored = true,
-            -- layout = { preset = "telescope" },
-          },
-        },
-      },
-    },
-    init = function()
-      -- Set highlight overrides when colorscheme loads
-      vim.api.nvim_create_autocmd("ColorScheme", {
-        pattern = "*",
-        callback = function()
-          local highlights = {
-            -- Main picker highlights
-            SnacksPickerDir = "Directory",
-            SnacksPickerPathHidden = "NeoTreeHiddenByName",
-            SnacksPickerPathIgnored = "NeoTreeGitIgnored",
-
-            -- Additional picker elements
-            -- SnacksPickerBorder = "FloatBorder",
-            -- SnacksPickerTitle = "FloatTitle",
-            -- SnacksPickerIcon = "Special",
-            -- SnacksPickerIconDir = "Directory",
-
-            -- Git status
-            SnacksPickerGitStatusUntracked = "GitSignsUntracked",
-            SnacksPickerGitStatusModified = "DiagnosticWarn",
-            SnacksPickerGitStatusRenamed = "GitSignsChange",
-            SnacksPickerGitStatusDeleted = "GitSignsDelete",
-            SnacksPickerGitStatusIgnored = "NeoTreeGitIgnored",
-            SnacksPickerGitStatusAdded = "GitSignsAdd",
-            SnacksPickerGitStatusStaged = "GitSignsAdd",
-
-            -- TODO: change to a better colour later
-            RenderMarkdownCode = "Special",
-          }
-
-          for group, link in pairs(highlights) do
-            vim.api.nvim_set_hl(0, group, { link = link })
-          end
-        end,
-      })
-    end,
-  },
-
   {
     "cohml/todo-comments.nvim",
     branch = "feat/keyword-padding",

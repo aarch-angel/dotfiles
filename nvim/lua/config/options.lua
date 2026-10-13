@@ -9,6 +9,9 @@ vim.o.shiftwidth = 4
 vim.o.softtabstop = 4
 vim.o.expandtab = false
 
+-- I think I set this to hide markdown markers
+vim.opt.conceallevel = 2
+
 vim.opt.guicursor =
   "n-v-c-sm:block-blinkon750-blinkoff750-blinkwait1500,i-ci-ve:ver25,r-cr-o:hor20,t:block-blinkon500-blinkoff500-TermCursor"
 

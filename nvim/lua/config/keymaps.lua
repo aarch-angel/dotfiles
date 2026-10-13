@@ -80,10 +80,5 @@ map("v", "<A-Up>", ":m '<-2<cr>gv=gv", { desc = "Move Up" })
 map("n", "<C-Up>", "{", { noremap = true })
 map("n", "<C-Down>", "}", { noremap = true })
 
--- Buffer management
-map("n", "<leader>bk", function()
-  Snacks.bufdelete()
-end, { desc = "Delete Buffer" })
-
 -- R to delete without putting in register
 map({ "n", "x" }, "R", '"_d', { desc = "Delete Without Yank" })
